@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import headingDisplayReducer from './headingDisplayReducer.js';
+import modelReducer from './modelReducer.js';
 
 const allReducers = combineReducers({
-  headingDisplay: headingDisplayReducer
+  model: modelReducer
 });
 
 export default allReducers
