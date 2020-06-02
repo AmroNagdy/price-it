@@ -5,7 +5,7 @@ import OptionsBlackScholes from '../../models/options/OptionsBlackScholes'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 
-function NavigationBar(props) {
+const NavigationBar = props => {
 
   return (
     <div style={{ height: '60px' }}>

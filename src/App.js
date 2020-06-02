@@ -4,9 +4,10 @@ import NavigationBar from './components/heading/NavigationBar';
 import ModelHeading from './components/heading/ModelHeading';
 import LandingPageHeading from './components/heading/LandingPageHeading';
 import LandingPageBody from './components/body/LandingPageBody';
+import ModelBody from './components/body/ModelBody';
 import { connect } from 'react-redux';
 
-function App(props) {
+const App = props => {
 
   const modelIsSelected = props.activeModel === null;
 
@@ -14,7 +15,7 @@ function App(props) {
     <AppStyle>
       <NavigationBar />
       {modelIsSelected ? <LandingPageHeading /> : <ModelHeading />}
-      {modelIsSelected ? <LandingPageBody /> : <p>Working on it!</p>}
+      {modelIsSelected ? <LandingPageBody /> : <ModelBody />}
     </AppStyle>
   );
 

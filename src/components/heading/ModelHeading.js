@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import H1Style from '../styles/H1Style';
 
-function Heading(props) {
+const Heading = props => {
 
   return (
     <H1Style><b>{props.assetClassName}</b> {' ' + props.modelName}</H1Style>

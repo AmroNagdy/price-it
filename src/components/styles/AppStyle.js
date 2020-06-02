@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { BLACK, WHITE } from '../../constants/AppColours';
 
-const AppStyle = styled.div`
+export default styled.div`
   background-color: ${WHITE};
   min-height: 100vh;
   display: flex;
@@ -9,5 +9,3 @@ const AppStyle = styled.div`
   align-items: center;
   color: ${BLACK};
 `;
-
-export default AppStyle;

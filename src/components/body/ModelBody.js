@@ -1,10 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Inputs from './Inputs';
+import Output from './Output';
 
-function ModelBody(props) {
+const ModelBody = props => {
 
   return (
-    <p>Model is selected.</p>
+    <div style={{ margin: 'auto', textAlign: 'center' }}>
+      <Inputs />
+      <Output />
+    </div>
   );
 
 };
