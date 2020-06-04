@@ -1,28 +1,23 @@
 import React from 'react';
-import AppStyle from './components/styles/AppStyle';
-import NavigationBar from './components/heading/NavigationBar';
-import ModelHeading from './components/heading/ModelHeading';
-import LandingPageHeading from './components/heading/LandingPageHeading';
-import LandingPageBody from './components/body/LandingPageBody';
-import ModelBody from './components/body/ModelBody';
-import { connect } from 'react-redux';
+import StyledApp from './components/styles/StyledApp';
+import NavigationBar from './components/navigation/NavigationBar';
+import Model from './components/model/Model';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import BlackScholes from './model/options/BlackScholes';
+import Landing from './components/landing/Landing';
 
-const App = props => {
-
-  const modelIsSelected = props.activeModel === null;
+export default () => {
 
   return (
-    <AppStyle>
-      <NavigationBar />
-      {modelIsSelected ? <LandingPageHeading /> : <ModelHeading />}
-      {modelIsSelected ? <LandingPageBody /> : <ModelBody />}
-    </AppStyle>
+    <StyledApp>
+      <BrowserRouter>
+        <NavigationBar />
+        <Switch>
+          <Route path='/options/black-scholes' render={() => <Model model={BlackScholes} />} />
+          <Route path='/' component={Landing} />
+        </Switch>
+      </BrowserRouter>
+    </StyledApp>
   );
 
 };
-
-const mapStateToProps = state => ({
-  activeModel: state.model.activeModel
-});
-
-export default connect(mapStateToProps)(App);
