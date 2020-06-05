@@ -1,14 +1,25 @@
 import React from 'react';
 import ModelHeading from './ModelHeading';
 import ModelBody from './ModelBody';
+import { connect } from 'react-redux';
+import { loadModel } from '../../redux/actions/ModelActions';
 
-export default props => {
+const Model = props => {
+
+  props.loadModel(props.model);
 
   return (
     <>
-      <ModelHeading assetClass={props.model.assetClass} modelName={props.model.name} />
-      <ModelBody parameters={props.model.parameters} pricingFunction={props.model.pricingFunction} />
+      <ModelHeading />
+      <ModelBody />
     </>
   );
 
 };
+
+
+const mapDispatchToProps = dispatch => ({
+  loadModel: instance => dispatch(loadModel(instance))
+});
+
+export default connect(null, mapDispatchToProps)(Model);

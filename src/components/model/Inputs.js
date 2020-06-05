@@ -1,19 +1,23 @@
 import React from 'react';
 import InputForm from './InputForm';
-import { Button, Form } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
+import { connect } from 'react-redux';
 
-export default props => {
+const Inputs = props => {
 
   return (
     <div>
       <h2>Inputs</h2>
       <Form>
-        {Object.entries(props.parameters).map(p => <InputForm key={p[0]} name={p[0]} description={p[1].description} />)}
+        {props.parameters.map(p => <InputForm key={p.name} parameter={p} />)}
       </Form>
-      <Button variant="primary" type="submit">
-        Calculate
-      </Button>
     </div>
   );
 
 };
+
+const mapStateToProps = state => ({
+  parameters: state.model.instance.parameters
+});
+
+export default connect(mapStateToProps)(Inputs);

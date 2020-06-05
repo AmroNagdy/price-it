@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 
@@ -10,7 +9,7 @@ export default () => {
   return (
     <div style={{ height: `${height + 10}px` }}>
       <Navbar bg='light' expand='lg' fixed='top' style={{ height: `${height}px` }}>
-        <Navbar.Brand href='/'>QuantMods</Navbar.Brand>
+        <Navbar.Brand href='#/'>QuantMods</Navbar.Brand>
         <Navbar.Collapse>
           <Nav>
             <NavDropdown title='Stocks'>
@@ -26,8 +25,8 @@ export default () => {
             </NavDropdown>
 
             <NavDropdown title='Options'>
-              <NavDropdown.Item href='/options/binomial'>Binomial</NavDropdown.Item>
-              <NavDropdown.Item href='/options/black-scholes'>Black-Scholes</NavDropdown.Item>
+              <NavDropdown.Item href='#/options/binomial'>Binomial</NavDropdown.Item>
+              <NavDropdown.Item href='#/options/black-scholes'>Black-Scholes</NavDropdown.Item>
             </NavDropdown>
 
             <NavDropdown title='Interest Rate Swaps'>
