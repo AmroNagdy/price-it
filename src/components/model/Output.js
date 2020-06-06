@@ -1,20 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import StyledH2 from '../styles/StyledH2';
+import StyledH3 from '../styles/StyledH3';
 
 const Output = props => {
 
+  const price = props.priceFunction(props.parameters);
+
   return (
     <div>
-      <h2>Output</h2>
-      <h2>{props.priceFunction(props.parameters)}</h2>
+      <StyledH2>Price</StyledH2>
+      <StyledH3>{price === null ? 'N/A' : price}</StyledH3>
     </div>
   );
 
 };
 
 const mapStateToProps = state => ({
-  priceFunction: state.model.instance.priceFunction,
-  parameters: state.model.instance.parameters
+  priceFunction: state.model.priceFunction,
+  parameters: state.model.parameters
 });
 
 export default connect(mapStateToProps)(Output);

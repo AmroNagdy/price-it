@@ -11,8 +11,8 @@ const ModelHeading = props => {
 };
 
 const mapStateToProps = state => ({
-  assetClass: state.model.instance.assetClass,
-  name: state.model.instance.name
+  assetClass: state.model.assetClass,
+  name: state.model.name
 });
 
 export default connect(mapStateToProps)(ModelHeading);

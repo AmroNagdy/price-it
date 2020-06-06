@@ -1,7 +1,5 @@
-export const WHITE = '#F2F0F0';
+export const WHITE = '#F2F2F2';
 export const BLACK = '#282C34';
-export const SALMON_PINK = '#F29999';
-export const DEEP_PURPLE = '#251973';
-export const DARK_PURPLE = '#1B1159';
-export const PURPLE = '#7833A6';
-export const PINK = '#D96C9F';
+export const YELLOW = '#D9A566';
+export const GREEN = '#06BF69';
+export const BLUE = '#464D73';

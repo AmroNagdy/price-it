@@ -1,18 +1,18 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import GitHubLogo from './GitHubLogo';
 
 export default () => {
 
-  const height = 50;
-
   return (
-    <div style={{ height: `${height + 10}px` }}>
-      <Navbar bg='light' expand='lg' fixed='top' style={{ height: `${height}px` }}>
-        <Navbar.Brand href='#/'>QuantMods</Navbar.Brand>
+    <div style={{ height: `60px` }}>
+      <Navbar bg='light' expand='md' fixed='top' >
+        <Navbar.Brand href='#/'><span role='img' aria-label='logo'>💸</span>QuantMods</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse>
           <Nav>
-            <NavDropdown title='Stocks'>
+            <NavDropdown title='Equities'>
               <NavDropdown.Item>Expected Value</NavDropdown.Item>
             </NavDropdown>
 
@@ -29,10 +29,13 @@ export default () => {
               <NavDropdown.Item href='#/options/black-scholes'>Black-Scholes</NavDropdown.Item>
             </NavDropdown>
 
-            <NavDropdown title='Interest Rate Swaps'>
+            <NavDropdown title='Swaps'>
               <NavDropdown.Item>N/A</NavDropdown.Item>
             </NavDropdown>
           </Nav>
+        </Navbar.Collapse>
+        <Navbar.Collapse className='justify-content-end'>
+          <GitHubLogo />
         </Navbar.Collapse>
       </Navbar>
     </div>

@@ -1,18 +1,31 @@
 import * as Actions from '../actions/ModelActions';
 
-const initialState = { model: null };
+const initialState = {
+  assetClass: null,
+  name: null,
+  parameters: null,
+  priceFunction: null
+};
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case Actions.LOAD_MODEL:
       return {
         ...state,
-        instance: action.payload.instance
+        assetClass: action.payload.model.assetClass,
+        name: action.payload.model.name,
+        parameters: action.payload.model.parameters,
+        priceFunction: action.payload.model.priceFunction
       }
 
     case Actions.UPDATE_PARAMETER:
-      // TODO: Figure out how to update output in real time.
-      return state;
+      const newParameters = { ...state.parameters };
+      newParameters[action.payload.parameterName].value = action.payload.newValue;
+
+      return {
+        ...state,
+        parameters: newParameters
+      };
 
     default:
       return state;

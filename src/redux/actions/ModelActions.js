@@ -1,12 +1,12 @@
 export const LOAD_MODEL = 'LOAD_MODEL';
 export const UPDATE_PARAMETER = 'UPDATE_PARAMETER';
 
-export const loadModel = instance => ({
+export const loadModel = model => ({
   type: LOAD_MODEL,
-  payload: { instance }
+  payload: { model }
 });
 
-export const updateParameter = parameter => ({
+export const updateParameter = (parameterName, newValue) => ({
   type: UPDATE_PARAMETER,
-  payload: { parameter }
+  payload: { parameterName, newValue }
 });

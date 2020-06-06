@@ -1,13 +1,12 @@
 import React from 'react';
-import Inputs from './Inputs';
+import ParameterList from './ParameterList';
 import Output from './Output';
-import { connect } from 'react-redux';
 
 export default () => {
 
   return (
     <div style={{ margin: 'auto', textAlign: 'center' }}>
-      <Inputs />
+      <ParameterList />
       <Output />
     </div>
   );
