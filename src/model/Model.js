@@ -1,4 +1,4 @@
-import { keyParameters } from './parameter/ParameterMappers';
+import { keyParameters } from './parameter/ParameterUtils';
 
 export default class Model {
 

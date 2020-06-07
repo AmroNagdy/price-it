@@ -26,14 +26,14 @@ const ParameterForm = props => {
     switch (parameter.constructor) {
       case SelectionParameter:
         return (
-          <FormControl defaultValue={getValue} as='select' placeholder={parameter.description} onChange={handleSelectionChange}>
+          <FormControl style={{ width: '20vw' }} defaultValue={getValue} as='select' placeholder={parameter.description} onChange={handleSelectionChange}>
             {parameter.selections.map(selection => <option key={selection}>{selection}</option>)}
           </FormControl>
         );
 
       case NumericParameter:
         return (
-          <FormControl defaultValue={getValue} placeholder={parameter.description} onChange={handleNumericChange} />
+          <FormControl style={{ width: '20vw' }} defaultValue={getValue} placeholder={parameter.description} onChange={handleNumericChange} />
         );
 
       default:

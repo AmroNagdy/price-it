@@ -2,7 +2,7 @@ import * as jstat from 'jstat';
 import Model from '../Model';
 import NumericParameter from '../parameter/NumericParameter';
 import SelectionParameter from '../parameter/SelectionParameter';
-import { extractParameterValues } from '../parameter/ParameterMappers';
+import { extractParameterValues, existsNull } from '../parameter/ParameterUtils';
 
 export default new Model(
   'Options',
@@ -10,14 +10,14 @@ export default new Model(
   [
     new NumericParameter('S', 'Spot price'),
     new NumericParameter('K', 'Strike price'),
-    new NumericParameter('T', 'Maturity'),
+    new NumericParameter('T', 'Time to maturity'),
     new NumericParameter('r', 'Risk-free rate'),
     new NumericParameter('σ', 'Volatility of underlying'),
     new SelectionParameter('Call or put', 'Option type', ['Call', 'Put'])
   ],
   keyedParameters => {
     const { S, T, K, r, σ, 'Call or put': callOrPut } = extractParameterValues(keyedParameters);
-    if ([S, T, K, r, σ, callOrPut].some(parameter => parameter === null)) {
+    if (existsNull([S, T, K, r, σ, callOrPut])) {
       return null;
     }
 

@@ -6,5 +6,5 @@ export default styled.h3`
   text-align: center;
   justify-self: center;
   color: ${YELLOW};
-  font-size: 2rem;
+  font-size: 1.5rem;
 `;

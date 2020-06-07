@@ -6,7 +6,7 @@ import GitHubLogo from './GitHubLogo';
 export default () => {
 
   return (
-    <div style={{ height: `60px` }}>
+    <div style={{ height: '60px' }}>
       <Navbar bg='light' expand='md' fixed='top' >
         <Navbar.Brand href='#/'><span role='img' aria-label='logo'>💸</span>QuantMods</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
