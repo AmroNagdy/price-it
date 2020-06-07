@@ -10,13 +10,10 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case Actions.LOAD_MODEL:
-      return {
-        ...state,
-        assetClass: action.payload.model.assetClass,
-        name: action.payload.model.name,
-        parameters: action.payload.model.parameters,
-        priceFunction: action.payload.model.priceFunction
-      }
+      const model = action.payload.model;
+      const { assetClass, name, parameters, priceFunction } = model;
+
+      return { ...state, assetClass, name, parameters, priceFunction };
 
     case Actions.UPDATE_PARAMETER:
       const newParameters = { ...state.parameters };

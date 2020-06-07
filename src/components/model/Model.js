@@ -17,9 +17,8 @@ const Model = props => {
 
 };
 
-
 const mapDispatchToProps = dispatch => ({
-  loadModel: instance => dispatch(loadModel(instance))
+  loadModel: model => dispatch(loadModel(model))
 });
 
 export default connect(null, mapDispatchToProps)(Model);

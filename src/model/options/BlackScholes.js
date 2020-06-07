@@ -6,7 +6,7 @@ import { extractParameterValues } from '../parameter/ParameterMappers';
 
 export default new Model(
   'Options',
-  'Black-scholes',
+  'Black-Scholes',
   [
     new NumericParameter('S', 'Spot price'),
     new NumericParameter('K', 'Strike price'),

@@ -10,6 +10,8 @@ const ParameterForm = props => {
 
   const parameter = props.parameter;
 
+  const getValue = parameter.value === null ? '' : parameter.value;
+
   const handleSelectionChange = event => {
     const newValue = event.target.value;
     props.updateParameter(parameter.name, newValue)
@@ -23,12 +25,16 @@ const ParameterForm = props => {
   const buildInputCell = parameter => {
     switch (parameter.constructor) {
       case SelectionParameter:
-        return <FormControl as='select' placeholder={parameter.description} onChange={handleSelectionChange}>
-          {parameter.selections.map(selection => <option key={selection}>{selection}</option>)}
-        </FormControl>;
+        return (
+          <FormControl defaultValue={getValue} as='select' placeholder={parameter.description} onChange={handleSelectionChange}>
+            {parameter.selections.map(selection => <option key={selection}>{selection}</option>)}
+          </FormControl>
+        );
 
       case NumericParameter:
-        return <FormControl placeholder={parameter.description} onChange={handleNumericChange} />
+        return (
+          <FormControl defaultValue={getValue} placeholder={parameter.description} onChange={handleNumericChange} />
+        );
 
       default:
         return;
