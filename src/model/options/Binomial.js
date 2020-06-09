@@ -73,8 +73,6 @@ export default new Model(
       }
     }
 
-    console.log(binaryTree);
-
     return binaryTree[matrixMidpoint][0].optionValue;
   }
 );
