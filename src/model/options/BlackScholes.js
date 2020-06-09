@@ -11,8 +11,8 @@ export default new Model(
     new NumericParameter('S', 'Spot price'),
     new NumericParameter('K', 'Strike price'),
     new NumericParameter('T', 'Time to maturity'),
-    new NumericParameter('r', 'Risk-free rate'),
-    new NumericParameter('σ', 'Volatility of underlying'),
+    new NumericParameter('r', 'Risk-free rate (%)'),
+    new NumericParameter('σ', 'Volatility of underlying (%)'),
     new SelectionParameter('Call or put', 'Option type', ['Call', 'Put'])
   ],
   keyedParameters => {
@@ -21,13 +21,15 @@ export default new Model(
       return null;
     }
 
-    const d1 = (Math.log(S / K) + (r + 0.5 * Math.pow(σ, 2)) * T) / (σ * Math.sqrt(T));
+    const [rDecimal, σDecimal] = [r, σ].map(x => x / 100);
+
+    const d1 = (Math.log(S / K) + (rDecimal + 0.5 * Math.pow(σDecimal, 2)) * T) / (σDecimal * Math.sqrt(T));
     const d2 = d1 - σ * Math.sqrt(T);
 
     if (callOrPut === 'Call') {
-      return S * jstat.normal.cdf(d1, 0, 1) - K * Math.pow(Math.E, -r * T) * jstat.normal.cdf(d2, 0, 1);
+      return S * jstat.normal.cdf(d1, 0, 1) - K * Math.pow(Math.E, -rDecimal * T) * jstat.normal.cdf(d2, 0, 1);
     } else {
-      return K * Math.pow(Math.E, -r * T) * jstat.normal.cdf(-d2, 0, 1) - S * jstat.normal.cdf(-d1, 0, 1);
+      return K * Math.pow(Math.E, -rDecimal * T) * jstat.normal.cdf(-d2, 0, 1) - S * jstat.normal.cdf(-d1, 0, 1);
     }
   }
 );
