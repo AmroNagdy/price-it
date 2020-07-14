@@ -1,1 +1,1 @@
-# QuantMods
+# PriceIt

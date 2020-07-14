@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { updateParameter } from 'redux/actions/ModelActions';
 import SelectionParameter from 'model/parameter/SelectionParameter';
 import NumericParameter from 'model/parameter/NumericParameter';
-import ManyNumericParameter from 'model/parameter/ManyNumericParameter';
+import NumericArrayParameter from 'model/parameter/NumericArrayParameter';
 
 const ParameterForm = props => {
 
@@ -23,8 +23,8 @@ const ParameterForm = props => {
     props.updateParameter(parameter.name, newValue);
   };
 
-  const handleManyNumericChange = event => {
-    const newValue = event.target.value === '' ? null : event.target.value.split(',').map(number => parseFloat(number));
+  const handleNumericArrayChange = event => {
+    const newValue = event.target.value === '' ? [] : event.target.value.split(',').map(number => parseFloat(number));
     props.updateParameter(parameter.name, newValue);
   };
 
@@ -42,9 +42,9 @@ const ParameterForm = props => {
           <FormControl style={{ width: '280px' }} defaultValue={getValue} placeholder={parameter.description} onChange={handleNumericChange} />
         );
 
-      case ManyNumericParameter:
+      case NumericArrayParameter:
         return (
-          <FormControl style={{ width: '280px' }} defaultValue={getValue} placeholder={parameter.description} onChange={handleManyNumericChange} />
+          <FormControl style={{ width: '280px' }} defaultValue={getValue} placeholder={parameter.description} onChange={handleNumericArrayChange} />
         );
 
       default:
