@@ -1,4 +1,4 @@
-import * as Actions from '../actions/ModelActions';
+import * as Actions from 'redux/actions/ModelActions';
 
 const initialState = {
   assetClass: null,

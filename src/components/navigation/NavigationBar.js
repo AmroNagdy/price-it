@@ -2,6 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import GitHubLogo from './GitHubLogo';
+import * as ModelPaths from 'constants/ModelPaths';
 
 export default () => {
 
@@ -12,8 +13,8 @@ export default () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse>
           <Nav>
-            <NavDropdown title='Equities'>
-              <NavDropdown.Item>Expected Value</NavDropdown.Item>
+            <NavDropdown title='Stocks'>
+              <NavDropdown.Item href={'#' + ModelPaths.DIVIDEND_DISCOUNT}>Dividend Discount</NavDropdown.Item>
             </NavDropdown>
 
             <NavDropdown title='Forwards'>
@@ -25,8 +26,8 @@ export default () => {
             </NavDropdown>
 
             <NavDropdown title='Options'>
-              <NavDropdown.Item href='#/options/binomial'>Binomial</NavDropdown.Item>
-              <NavDropdown.Item href='#/options/black-scholes'>Black-Scholes</NavDropdown.Item>
+              <NavDropdown.Item href={'#' + ModelPaths.BINOMIAL_TREE}>Binomial Tree</NavDropdown.Item>
+              <NavDropdown.Item href={'#' + ModelPaths.BLACK_SCHOLES}>Black-Scholes</NavDropdown.Item>
             </NavDropdown>
 
             <NavDropdown title='Swaps'>

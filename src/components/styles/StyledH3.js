@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { YELLOW } from '../../constants/AppColours';
+import { YELLOW } from 'constants/AppColours';
 
 export default styled.h3`
   align-self: center;

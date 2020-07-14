@@ -1,7 +1,7 @@
 import React from 'react';
 import LandingHeading from './LandingHeading';
 import LandingBody from './LandingBody';
-import { loadModel } from '../../redux/actions/ModelActions';
+import { loadModel } from 'redux/actions/ModelActions';
 import { connect } from 'react-redux';
 
 const Landing = props => {

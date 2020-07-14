@@ -1,7 +1,7 @@
 import React from 'react';
 import ParameterForm from './ParameterForm';
 import { connect } from 'react-redux';
-import StyledH2 from '../styles/StyledH2';
+import StyledH2 from 'components/styles/StyledH2';
 
 const ParameterList = props => {
 

@@ -1,11 +1,13 @@
 import React from 'react';
-import StyledApp from './components/styles/StyledApp';
-import NavigationBar from './components/navigation/NavigationBar';
-import Model from './components/model/Model';
 import { HashRouter, Route, Switch } from 'react-router-dom';
-import BlackScholes from './model/options/BlackScholes';
-import Landing from './components/landing/Landing';
-import Binomial from './model/options/Binomial';
+import StyledApp from 'components/styles/StyledApp';
+import NavigationBar from 'components/navigation/NavigationBar';
+import Model from 'components/model/Model';
+import Landing from 'components/landing/Landing';
+import DividendDiscount from 'model/stocks/DividendDiscount';
+import BinomialTree from 'model/options/BinomialTree';
+import BlackScholes from 'model/options/BlackScholes';
+import * as ModelPaths from 'constants/ModelPaths';
 
 export default () => {
 
@@ -14,8 +16,9 @@ export default () => {
       <HashRouter>
         <NavigationBar />
         <Switch>
-          <Route path='/options/binomial' render={() => <Model model={Binomial} />} />
-          <Route path='/options/black-scholes' render={() => <Model model={BlackScholes} />} />
+          <Route path={ModelPaths.DIVIDEND_DISCOUNT} render={() => <Model model={DividendDiscount} />} />
+          <Route path={ModelPaths.BINOMIAL_TREE} render={() => <Model model={BinomialTree} />} />
+          <Route path={ModelPaths.BLACK_SCHOLES} render={() => <Model model={BlackScholes} />} />
           <Route path='/' render={() => <Landing />} />
         </Switch>
       </HashRouter>

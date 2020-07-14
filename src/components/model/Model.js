@@ -2,7 +2,7 @@ import React from 'react';
 import ModelHeading from './ModelHeading';
 import ModelBody from './ModelBody';
 import { connect } from 'react-redux';
-import { loadModel } from '../../redux/actions/ModelActions';
+import { loadModel } from 'redux/actions/ModelActions';
 
 const Model = props => {
 

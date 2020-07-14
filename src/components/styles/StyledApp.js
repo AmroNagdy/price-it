@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { BLACK, WHITE } from '../../constants/AppColours';
+import { BLACK, WHITE } from 'constants/AppColours';
 
 export default styled.div`
   background-color: ${WHITE};

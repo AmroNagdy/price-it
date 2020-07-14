@@ -1,6 +1,6 @@
 import React from 'react';
 import GitHubLogo from './GitHubLogo.svg';
-import StyledGitHubLogo from '../styles/StyledGitHubLogo';
+import StyledGitHubLogo from 'components/styles/StyledGitHubLogo';
 
 export default () => {
 

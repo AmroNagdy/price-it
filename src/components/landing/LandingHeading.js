@@ -1,5 +1,5 @@
 import React from 'react';
-import StyledH1 from '../styles/StyledH1';
+import StyledH1 from 'components/styles/StyledH1';
 
 export default () => {
 

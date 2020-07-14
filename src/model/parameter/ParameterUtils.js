@@ -11,3 +11,5 @@ export const extractParameterValues = keyedParameters => {
 };
 
 export const existsNull = parametersArray => parametersArray.some(parameter => parameter === null);
+
+export const existsNaN = manyNumericParameter => manyNumericParameter.some(number => isNaN(number));

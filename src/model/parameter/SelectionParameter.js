@@ -1,4 +1,4 @@
-import Parameter from "./Parameter";
+import Parameter from './Parameter';
 
 export default class SelectionParameter extends Parameter {
 

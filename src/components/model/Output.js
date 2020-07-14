@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import StyledH2 from '../styles/StyledH2';
-import StyledH3 from '../styles/StyledH3';
+import StyledH2 from 'components/styles/StyledH2';
+import StyledH3 from 'components/styles/StyledH3';
 
 const Output = props => {
 

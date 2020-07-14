@@ -1,8 +1,8 @@
 import * as jstat from 'jstat';
-import Model from '../Model';
-import NumericParameter from '../parameter/NumericParameter';
-import SelectionParameter from '../parameter/SelectionParameter';
-import { extractParameterValues, existsNull } from '../parameter/ParameterUtils';
+import Model from 'model/Model';
+import NumericParameter from 'model/parameter/NumericParameter';
+import SelectionParameter from 'model/parameter/SelectionParameter';
+import { extractParameterValues, existsNull, existsNaN } from 'model/parameter/ParameterUtils';
 
 export default new Model(
   'Options',
@@ -16,8 +16,9 @@ export default new Model(
     new SelectionParameter('Call or put', 'Option type', ['Call', 'Put'])
   ],
   keyedParameters => {
-    const { S, T, K, r, σ, 'Call or put': callOrPut } = extractParameterValues(keyedParameters);
-    if (existsNull([S, T, K, r, σ, callOrPut])) {
+    const { S, K, T, r, σ, 'Call or put': callOrPut } = extractParameterValues(keyedParameters);
+    const numericParameters = [S, T, K, r, σ, callOrPut];
+    if (existsNull(numericParameters) || existsNaN(numericParameters)) {
       return null;
     }
 

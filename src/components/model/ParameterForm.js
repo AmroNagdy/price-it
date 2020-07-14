@@ -2,9 +2,10 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FormControl, InputGroup } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { updateParameter } from '../../redux/actions/ModelActions';
-import SelectionParameter from '../../model/parameter/SelectionParameter';
-import NumericParameter from '../../model/parameter/NumericParameter';
+import { updateParameter } from 'redux/actions/ModelActions';
+import SelectionParameter from 'model/parameter/SelectionParameter';
+import NumericParameter from 'model/parameter/NumericParameter';
+import ManyNumericParameter from 'model/parameter/ManyNumericParameter';
 
 const ParameterForm = props => {
 
@@ -15,10 +16,15 @@ const ParameterForm = props => {
   const handleSelectionChange = event => {
     const newValue = event.target.value;
     props.updateParameter(parameter.name, newValue)
-  }
+  };
 
   const handleNumericChange = event => {
     const newValue = event.target.value === '' ? null : Number(event.target.value);
+    props.updateParameter(parameter.name, newValue);
+  };
+
+  const handleManyNumericChange = event => {
+    const newValue = event.target.value === '' ? null : event.target.value.split(',').map(number => parseFloat(number));
     props.updateParameter(parameter.name, newValue);
   };
 
@@ -34,6 +40,11 @@ const ParameterForm = props => {
       case NumericParameter:
         return (
           <FormControl style={{ width: '280px' }} defaultValue={getValue} placeholder={parameter.description} onChange={handleNumericChange} />
+        );
+
+      case ManyNumericParameter:
+        return (
+          <FormControl style={{ width: '280px' }} defaultValue={getValue} placeholder={parameter.description} onChange={handleManyNumericChange} />
         );
 
       default:
