@@ -1,6 +1,6 @@
 import React from 'react';
-import ParameterList from './ParameterList';
-import Output from './Output';
+import ParameterList from 'components/model-view/ParameterList';
+import Output from 'components/model-view/Output';
 
 export default () => {
 

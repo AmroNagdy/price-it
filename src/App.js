@@ -1,29 +1,33 @@
 import React from 'react';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import StyledApp from 'components/styles/StyledApp';
 import NavigationBar from 'components/navigation/NavigationBar';
-import Model from 'components/model/Model';
+import ModelView from 'components/model-view/ModelView';
 import Landing from 'components/landing/Landing';
-import DividendDiscount from 'model/stocks/DividendDiscount';
-import DiscountedCashFlow from 'model/stocks/DiscountedCashFlow';
-import BinomialTree from 'model/options/BinomialTree';
-import BlackScholes from 'model/options/BlackScholes';
+import EquityDividendDiscount from 'price-model/equities/EquityDividendDiscount';
+import EquityDiscountedCashFlow from 'price-model/equities/EquityDiscountedCashFlow';
+import BondPresentValue from 'price-model/bonds/BondPresentValue';
+import ForwardTradeableUnderlying from 'price-model/forwards/ForwardTradeableUnderlying';
+import OptionBinomialTree from 'price-model/options/OptionBinomialTree';
+import OptionBlackScholes from 'price-model/options/OptionBlackScholes';
 import * as ModelPaths from 'constants/ModelPaths';
 
 export default () => {
 
   return (
     <StyledApp>
-      <HashRouter>
+      <BrowserRouter>
         <NavigationBar />
         <Switch>
-          <Route path={ModelPaths.DIVIDEND_DISCOUNT} render={() => <Model model={DividendDiscount} />} />
-          <Route path={ModelPaths.DISCOUNTED_CASH_FLOW} render={() => <Model model={DiscountedCashFlow} />} />
-          <Route path={ModelPaths.BINOMIAL_TREE} render={() => <Model model={BinomialTree} />} />
-          <Route path={ModelPaths.BLACK_SCHOLES} render={() => <Model model={BlackScholes} />} />
+          <Route path={ModelPaths.EQUITY_DIVIDEND_DISCOUNT} render={() => <ModelView model={EquityDividendDiscount} />} />
+          <Route path={ModelPaths.EQUITY_DISCOUNTED_CASH_FLOW} render={() => <ModelView model={EquityDiscountedCashFlow} />} />
+          <Route path={ModelPaths.BOND_PRESENT_VALUE} render={() => <ModelView model={BondPresentValue} />} />
+          <Route path={ModelPaths.FORWARD_TRADEABLE_UNDERLYING} render={() => <ModelView model={ForwardTradeableUnderlying} />} />
+          <Route path={ModelPaths.OPTION_BINOMIAL_TREE} render={() => <ModelView model={OptionBinomialTree} />} />
+          <Route path={ModelPaths.OPTION_BLACK_SCHOLES} render={() => <ModelView model={OptionBlackScholes} />} />
           <Route path='/' render={() => <Landing />} />
         </Switch>
-      </HashRouter>
+      </BrowserRouter>
     </StyledApp>
   );
 

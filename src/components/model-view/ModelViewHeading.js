@@ -2,7 +2,7 @@ import React from 'react';
 import StyledH1 from 'components/styles/StyledH1';
 import { connect } from 'react-redux';
 
-const ModelHeading = props => {
+const ModelViewHeading = props => {
 
   return (
     <StyledH1><b>{props.assetClass}</b> {` ${props.name}`}</StyledH1>
@@ -15,4 +15,4 @@ const mapStateToProps = state => ({
   name: state.model.name
 });
 
-export default connect(mapStateToProps)(ModelHeading);
+export default connect(mapStateToProps)(ModelViewHeading);

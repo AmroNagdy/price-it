@@ -1,4 +1,4 @@
-import Parameter from './Parameter';
+import Parameter from 'price-model/common/parameter/Parameter';
 
 export default class SelectionParameter extends Parameter {
 

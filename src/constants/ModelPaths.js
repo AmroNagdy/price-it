@@ -1,5 +1,9 @@
-export const DIVIDEND_DISCOUNT = '/stocks/dividend-discount';
-export const DISCOUNTED_CASH_FLOW = '/stocks/discounted-cash-flow';
+export const EQUITY_DIVIDEND_DISCOUNT = '/equities/dividend-discount';
+export const EQUITY_DISCOUNTED_CASH_FLOW = '/equities/discounted-cash-flow';
 
-export const BINOMIAL_TREE = '/options/binomial-tree';
-export const BLACK_SCHOLES = '/options/black-scholes';
+export const BOND_PRESENT_VALUE = '/bonds/present-value';
+
+export const FORWARD_TRADEABLE_UNDERLYING = '/forwards/tradeable-underlying';
+
+export const OPTION_BINOMIAL_TREE = '/options/binomial-tree';
+export const OPTION_BLACK_SCHOLES = '/options/black-scholes';

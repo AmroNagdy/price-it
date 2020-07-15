@@ -1,11 +1,14 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import GitHubLogo from './GitHubLogo';
-import DividendDiscount from 'model/stocks/DividendDiscount';
-import DiscountedCashFlow from 'model/stocks/DiscountedCashFlow';
-import BinomialTree from 'model/options/BinomialTree';
-import BlackScholes from 'model/options/BlackScholes';
+import StyledLink from 'components/styles/StyledLink';
+import GitHubLogo from 'components/navigation/GitHubLogo';
+import EquityDividendDiscount from 'price-model/equities/EquityDividendDiscount';
+import EquityDiscountedCashFlow from 'price-model/equities/EquityDiscountedCashFlow';
+import BondPresentValue from 'price-model/bonds/BondPresentValue';
+import ForwardTradeableUnderlying from 'price-model/forwards/ForwardTradeableUnderlying';
+import OptionBinomialTree from 'price-model/options/OptionBinomialTree';
+import OptionBlackScholes from 'price-model/options/OptionBlackScholes';
 import * as ModelPaths from 'constants/ModelPaths';
 
 export default () => {
@@ -13,17 +16,21 @@ export default () => {
   return (
     <div style={{ height: '60px' }}>
       <Navbar bg='light' expand='md' fixed='top' className='custom-nav-bg'>
-        <Navbar.Brand href='#/'><span role='img' aria-label='logo'>💸</span>PriceIt</Navbar.Brand>
+        <Navbar.Brand><StyledLink to='/'><span role='img' aria-label='logo'>💸</span>PriceIt</StyledLink></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse>
           <Nav>
-            <NavDropdown title='Stocks'>
-              <NavDropdown.Item href={'#' + ModelPaths.DIVIDEND_DISCOUNT}>{DividendDiscount.name}</NavDropdown.Item>
-              <NavDropdown.Item href={'#' + ModelPaths.DISCOUNTED_CASH_FLOW}>{DiscountedCashFlow.name}</NavDropdown.Item>
+            <NavDropdown title='Equities'>
+              <NavDropdown.Item><StyledLink to={ModelPaths.EQUITY_DIVIDEND_DISCOUNT}>{EquityDividendDiscount.name}</StyledLink></NavDropdown.Item>
+              <NavDropdown.Item><StyledLink to={ModelPaths.EQUITY_DISCOUNTED_CASH_FLOW}>{EquityDiscountedCashFlow.name}</StyledLink></NavDropdown.Item>
+            </NavDropdown>
+
+            <NavDropdown title='Bonds'>
+              <NavDropdown.Item><StyledLink to={ModelPaths.BOND_PRESENT_VALUE}>{BondPresentValue.name}</StyledLink></NavDropdown.Item>
             </NavDropdown>
 
             <NavDropdown title='Forwards'>
-              <NavDropdown.Item>N/A</NavDropdown.Item>
+              <NavDropdown.Item><StyledLink to={ModelPaths.FORWARD_TRADEABLE_UNDERLYING}>{ForwardTradeableUnderlying.name}</StyledLink></NavDropdown.Item>
             </NavDropdown>
 
             <NavDropdown title='Futures'>
@@ -31,8 +38,8 @@ export default () => {
             </NavDropdown>
 
             <NavDropdown title='Options'>
-              <NavDropdown.Item href={'#' + ModelPaths.BINOMIAL_TREE}>{BinomialTree.name}</NavDropdown.Item>
-              <NavDropdown.Item href={'#' + ModelPaths.BLACK_SCHOLES}>{BlackScholes.name}</NavDropdown.Item>
+              <NavDropdown.Item><StyledLink to={ModelPaths.OPTION_BINOMIAL_TREE}>{OptionBinomialTree.name}</StyledLink></NavDropdown.Item>
+              <NavDropdown.Item><StyledLink to={ModelPaths.OPTION_BLACK_SCHOLES}>{OptionBlackScholes.name}</StyledLink></NavDropdown.Item>
             </NavDropdown>
 
             <NavDropdown title='Swaps'>

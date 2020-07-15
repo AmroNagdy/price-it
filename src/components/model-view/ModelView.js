@@ -1,17 +1,17 @@
 import React from 'react';
-import ModelHeading from './ModelHeading';
-import ModelBody from './ModelBody';
+import ModelViewHeading from 'components/model-view/ModelViewHeading';
+import ModelViewBody from 'components/model-view/ModelViewBody';
 import { connect } from 'react-redux';
 import { loadModel } from 'redux/actions/ModelActions';
 
-const Model = props => {
+const ModelView = props => {
 
   props.loadModel(props.model);
 
   return (
     <>
-      <ModelHeading />
-      <ModelBody />
+      <ModelViewHeading />
+      <ModelViewBody />
     </>
   );
 
@@ -21,4 +21,4 @@ const mapDispatchToProps = dispatch => ({
   loadModel: model => dispatch(loadModel(model))
 });
 
-export default connect(null, mapDispatchToProps)(Model);
+export default connect(null, mapDispatchToProps)(ModelView);

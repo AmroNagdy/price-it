@@ -1,4 +1,4 @@
-import { keyParameters } from './parameter/ParameterUtils';
+import { keyParameters } from 'price-model/common/parameter/ParameterUtils';
 
 export default class Model {
 

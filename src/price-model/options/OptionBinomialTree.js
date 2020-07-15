@@ -1,7 +1,8 @@
-import Model from 'model/Model';
-import NumericParameter from 'model/parameter/NumericParameter';
-import SelectionParameter from 'model/parameter/SelectionParameter';
-import { extractParameterValues, existsNull, existsNaN } from 'model/parameter/ParameterUtils';
+import Model from 'price-model/common/Model';
+import * as Tooltips from 'price-model/common/Tooltips';
+import NumericParameter from 'price-model/common/parameter/NumericParameter';
+import SelectionParameter from 'price-model/common/parameter/SelectionParameter';
+import { extractParameterValues, existsNull, existsNaN } from 'price-model/common/parameter/ParameterUtils';
 
 export default new Model(
   'Options',
@@ -9,17 +10,17 @@ export default new Model(
   [
     new NumericParameter('S', 'Spot price'),
     new NumericParameter('K', 'Strike price'),
-    new NumericParameter('T', 'Discrete time to maturity'),
-    new NumericParameter('r', 'Risk-free rate (%)'),
-    new NumericParameter('u', 'Upside price increase (%)'),
-    new NumericParameter('d', 'Downside price decrease (%)'),
-    new NumericParameter('p', 'Upside probability (%)'),
+    new NumericParameter('T', 'Time to maturity', Tooltips.INTEGERS_GEQ_1),
+    new NumericParameter('r', 'Risk-free rate', Tooltips.PERCENTAGE),
+    new NumericParameter('u', 'Upside price increase', Tooltips.PERCENTAGE),
+    new NumericParameter('d', 'Downside price decrease', Tooltips.PERCENTAGE),
+    new NumericParameter('p', 'Upside probability', Tooltips.PROBABILITY),
     new SelectionParameter('Call or put', 'Option type', ['Call', 'Put'])
   ],
   keyedParameters => {
     const { S, T, K, r, u, d, p, 'Call or put': callOrPut } = extractParameterValues(keyedParameters);
     const numericParameters = [S, T, K, r, u, d, p];
-    if (existsNull(numericParameters.concat([callOrPut])) || existsNaN(numericParameters) || !Number.isInteger(T) || T <= 0 || p > 100 || p < 0) {
+    if (existsNull(numericParameters.concat([callOrPut])) || existsNaN(numericParameters) || !Number.isInteger(T) || T < 1 || p > 100 || p < 0) {
       return null;
     }
 

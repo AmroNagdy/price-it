@@ -1,10 +1,8 @@
 import React from 'react';
-import LandingHeading from './LandingHeading';
-import LandingBody from './LandingBody';
-import { loadModel } from 'redux/actions/ModelActions';
-import { connect } from 'react-redux';
+import LandingHeading from 'components/landing/LandingHeading';
+import LandingBody from 'components/landing/LandingBody';
 
-const Landing = props => {
+export default () => {
 
   return (
     <>
@@ -14,9 +12,3 @@ const Landing = props => {
   );
 
 };
-
-const mapDispatchToProps = dispatch => ({
-  loadModel: model => dispatch(loadModel(model))
-});
-
-export default connect(null, mapDispatchToProps)(Landing);

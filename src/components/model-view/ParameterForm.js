@@ -1,11 +1,13 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FormControl, InputGroup } from 'react-bootstrap';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 import { connect } from 'react-redux';
 import { updateParameter } from 'redux/actions/ModelActions';
-import SelectionParameter from 'model/parameter/SelectionParameter';
-import NumericParameter from 'model/parameter/NumericParameter';
-import NumericArrayParameter from 'model/parameter/NumericArrayParameter';
+import SelectionParameter from 'price-model/common/parameter/SelectionParameter';
+import NumericParameter from 'price-model/common/parameter/NumericParameter';
+import NumericArrayParameter from 'price-model/common/parameter/NumericArrayParameter';
 
 const ParameterForm = props => {
 
@@ -32,27 +34,27 @@ const ParameterForm = props => {
     switch (parameter.constructor) {
       case SelectionParameter:
         return (
-          <FormControl style={{ width: '280px' }} defaultValue={getValue} as='select' placeholder={parameter.description} onChange={handleSelectionChange}>
+          <FormControl style={{ width: '40vw' }} defaultValue={getValue} as='select' placeholder={parameter.description} onChange={handleSelectionChange}>
             {parameter.selections.map(selection => <option key={selection}>{selection}</option>)}
           </FormControl>
         );
 
       case NumericParameter:
         return (
-          <FormControl style={{ width: '280px' }} defaultValue={getValue} placeholder={parameter.description} onChange={handleNumericChange} />
+          <FormControl style={{ width: '40vw' }} defaultValue={getValue} placeholder={parameter.description} onChange={handleNumericChange} />
         );
 
       case NumericArrayParameter:
         return (
-          <FormControl style={{ width: '280px' }} defaultValue={getValue} placeholder={parameter.description} onChange={handleNumericArrayChange} />
+          <FormControl style={{ width: '40vw' }} defaultValue={getValue} placeholder={parameter.description} onChange={handleNumericArrayChange} />
         );
 
       default:
         return;
     }
-  }
+  };
 
-  return (
+  const inputGroup = (
     <InputGroup style={{ justifyContent: 'center' }}>
       <InputGroup.Prepend>
         <InputGroup.Text>{parameter.name}</InputGroup.Text>
@@ -61,6 +63,13 @@ const ParameterForm = props => {
     </InputGroup>
   );
 
+  const inputGroupWithTooltip = (
+    <OverlayTrigger placement='left' overlay={<Tooltip>{parameter.tooltip}</Tooltip>} >
+      {inputGroup}
+    </OverlayTrigger>
+  );
+
+  return parameter.tooltip !== undefined ? inputGroupWithTooltip : inputGroup;
 };
 
 const mapDipatchToProps = dispatch => ({
