@@ -10,6 +10,7 @@ import ForwardDeterministicInterestRate from 'price-model/forwards/ForwardDeterm
 import OptionBinomialTree from 'price-model/options/OptionBinomialTree';
 import OptionBlackScholes from 'price-model/options/OptionBlackScholes';
 import * as ModelPaths from 'constants/ModelPaths';
+import FutureCostOfCarry from 'price-model/futures/FutureCostOfCarry';
 
 export default () => {
 
@@ -34,7 +35,7 @@ export default () => {
             </NavDropdown>
 
             <NavDropdown title='Futures'>
-              <NavDropdown.Item>N/A</NavDropdown.Item>
+              <NavDropdown.Item><StyledLink to={ModelPaths.FUTURE_COST_OF_CARRY}>{FutureCostOfCarry.name}</StyledLink></NavDropdown.Item>
             </NavDropdown>
 
             <NavDropdown title='Options'>

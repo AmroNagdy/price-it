@@ -11,6 +11,7 @@ import ForwardDeterministicInterestRate from 'price-model/forwards/ForwardDeterm
 import OptionBinomialTree from 'price-model/options/OptionBinomialTree';
 import OptionBlackScholes from 'price-model/options/OptionBlackScholes';
 import * as ModelPaths from 'constants/ModelPaths';
+import FutureCostOfCarry from 'price-model/futures/FutureCostOfCarry';
 
 export default () => {
 
@@ -23,6 +24,7 @@ export default () => {
           <Route path={ModelPaths.EQUITY_DISCOUNTED_CASH_FLOW} render={() => <ModelView model={EquityDiscountedCashFlow} />} />
           <Route path={ModelPaths.BOND_PRESENT_VALUE} render={() => <ModelView model={BondPresentValue} />} />
           <Route path={ModelPaths.FORWARD_TRADEABLE_UNDERLYING} render={() => <ModelView model={ForwardDeterministicInterestRate} />} />
+          <Route path={ModelPaths.FUTURE_COST_OF_CARRY} render={() => <ModelView model={FutureCostOfCarry} />} />
           <Route path={ModelPaths.OPTION_BINOMIAL_TREE} render={() => <ModelView model={OptionBinomialTree} />} />
           <Route path={ModelPaths.OPTION_BLACK_SCHOLES} render={() => <ModelView model={OptionBlackScholes} />} />
           <Route path='/' render={() => <Landing />} />
