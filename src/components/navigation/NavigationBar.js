@@ -6,7 +6,7 @@ import GitHubLogo from 'components/navigation/GitHubLogo';
 import EquityDividendDiscount from 'price-model/equities/EquityDividendDiscount';
 import EquityDiscountedCashFlow from 'price-model/equities/EquityDiscountedCashFlow';
 import BondPresentValue from 'price-model/bonds/BondPresentValue';
-import ForwardTradeableUnderlying from 'price-model/forwards/ForwardTradeableUnderlying';
+import ForwardDeterministicInterestRate from 'price-model/forwards/ForwardDeterministicInterestRate';
 import OptionBinomialTree from 'price-model/options/OptionBinomialTree';
 import OptionBlackScholes from 'price-model/options/OptionBlackScholes';
 import * as ModelPaths from 'constants/ModelPaths';
@@ -30,7 +30,7 @@ export default () => {
             </NavDropdown>
 
             <NavDropdown title='Forwards'>
-              <NavDropdown.Item><StyledLink to={ModelPaths.FORWARD_TRADEABLE_UNDERLYING}>{ForwardTradeableUnderlying.name}</StyledLink></NavDropdown.Item>
+              <NavDropdown.Item><StyledLink to={ModelPaths.FORWARD_TRADEABLE_UNDERLYING}>{ForwardDeterministicInterestRate.name}</StyledLink></NavDropdown.Item>
             </NavDropdown>
 
             <NavDropdown title='Futures'>

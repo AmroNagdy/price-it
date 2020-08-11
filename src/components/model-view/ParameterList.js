@@ -8,13 +8,14 @@ const ParameterList = props => {
   return (
     <div style={{ paddingBottom: '20px' }}>
       <StyledH2>Parameters</StyledH2>
-      {Object.entries(props.parameters).map(([parameterName, parameter]) => <ParameterForm key={parameterName} parameter={parameter} />)}
+      {Object.entries(props.parameters).map(([parameterName, parameter]) => <ParameterForm key={props.name + parameterName} parameter={parameter} />)}
     </div>
   );
 
 };
 
 const mapStateToProps = state => ({
+  name: state.model.name,
   parameters: state.model.parameters
 });
 

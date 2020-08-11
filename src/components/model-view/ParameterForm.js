@@ -64,7 +64,7 @@ const ParameterForm = props => {
   );
 
   const inputGroupWithTooltip = (
-    <OverlayTrigger placement='left' overlay={<Tooltip>{parameter.tooltip}</Tooltip>} >
+    <OverlayTrigger placement='right' overlay={<Tooltip>{parameter.tooltip}</Tooltip>} >
       {inputGroup}
     </OverlayTrigger>
   );

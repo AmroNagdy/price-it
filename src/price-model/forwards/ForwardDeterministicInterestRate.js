@@ -6,7 +6,7 @@ import { extractParameterValues, existsNull, existsNaN } from 'price-model/commo
 
 export default new Model(
   'Forwards',
-  'Tradeable Underlying',
+  'Deterministic Interest Rate',
   [
     new NumericParameter('S', 'Current spot price of underlying'),
     new NumericArrayParameter('D', 'Dividend in period t'),
